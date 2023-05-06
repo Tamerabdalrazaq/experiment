@@ -1,0 +1,202 @@
+$height: 35rem;
+$width: 45rem; 
+
+html {
+  font-size: 18px;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.exp_container{
+  width: $width;
+  height: $height;
+  background-color: #f3f3f3;
+  color: #282c34;
+  border-radius: 5px;
+  padding: 1rem 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .top{
+    flex-grow: 1;
+    height: $height - 5rem;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+    border: 2.5px solid #282c34;
+    padding: 3px;
+  }
+  .bottom{
+    height: 4.5rem;
+    .buttons{
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.instructions-view{
+  h1{
+    margin-bottom: 2rem;
+  }
+  p{
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}
+
+
+.attention-check{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .checklist{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    width: fit-content;
+    span{
+      text-align: left;
+      input{
+        margin-right: .4rem;
+        transform: scale(1.34);
+      }
+    }
+  }
+}
+
+.game-view{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .players{
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    flex-grow: 1;
+    
+    .col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      .choise-result-slider{
+        h2{
+          font-size: 1.2rem;
+        }
+        animation-name: example;
+        font-weight: bolder;
+        animation-duration: 1.25s;
+        animation-fill-mode: forwards;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @keyframes example {
+          0%   {top: -20px;}
+          100% {top: 65%;}
+        }
+      }
+    }
+    .player-card{
+        border: 3px solid #282c34;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 2rem;
+        width: 15rem;
+        height: 6rem;
+        border-radius: 5px;
+
+        .choise-status{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+  .buttons{
+    button{
+      margin: 20px;
+    }
+  }
+
+  .floating-timer {
+    position: absolute;
+    bottom: 45%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 10rem;
+    div, span{
+      width: 8rem;
+      margin: auto;
+
+      h2{
+        text-align: center;
+        width: 8rem;
+      }
+    }
+  }
+}
+
+.pregame-count {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  div {
+    animation-name: countdown;
+    font-weight: bolder;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 4;
+    @keyframes countdown {
+      0%   {transform: scale(0);}
+      40% {transform: scale(4);}
+      100% {transform: scale(0);}
+    }
+  }
+
+}
+
+.status-circle{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  &.gray{
+    background-color: #282c34;
+  }
+  &.blue {
+    background-color: rgb(33, 95, 166);
+  }
+}
+
+.mobile-warning{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  h1{
+    text-align: center;
+  }
+}
