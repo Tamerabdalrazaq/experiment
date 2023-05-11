@@ -1,7 +1,9 @@
+import { bold_underlineText } from "../helpers/semantics";
+
 export const config = {
    GAME_CONFIG: {
       opponent_name: "Amir Mizrahi",
-      rounds: 30,
+      rounds: 5,
       round_timer: 3000,
       computer_delay: [500, 3000],
       inputs: {
@@ -23,6 +25,7 @@ export const config = {
       S_C: [20, 0],
       S_S: [10, 10],
    },
+   DICTATORS_GAME_MONEY: 100,
 };
 
 export const UI_DATA = {
@@ -106,6 +109,38 @@ export const UI_DATA = {
       instructions: [
          "Thank you for playing the first training set. The score previously would not count towards your final score.",
          "You will now continue to play against the same player. From now on your behavior would count towards your final score",
+      ],
+   },
+   DICTATOR_GAME_INSTRUCTIONS: {
+      title: "Dictator Game",
+      instructions: [
+         <>
+            Before calculating the final score, You are given an{" "}
+            {bold_underlineText("extra 100")} points.
+         </>,
+         "You can choose if and how much to split it with Amir. ",
+         <>
+            Please choose how much to {bold_underlineText("give")} Amir, the
+            remainder would be added to your final amount.
+         </>,
+      ],
+   },
+   GENERAL_QUESTIONS: {
+      title: "General Questions",
+      instructions: [],
+      q_1: "Do you think your behavior / Average contribution changed before and after the 20 second break?",
+      q_2: "If your behavior changed, Why do you think it changed?",
+      q_3: "What do you think was the purpose of this study? ",
+   },
+   DEBRIEF: {
+      title: "Debrief",
+      instructions: [
+         "Thanks for participating in our study. ",
+         <>
+            We would like to remind you that you played against a{" "}
+            {bold_underlineText("computer")}.
+         </>,
+         "The study was conducted in order to test if and how people play cooperative games based on timing and types of information presented to them.",
       ],
    },
 };

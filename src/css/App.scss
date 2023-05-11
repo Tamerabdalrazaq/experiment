@@ -249,7 +249,55 @@ button {
       100% {transform: scale(0);}
     }
   }
+}
 
+.dictator-game-container{
+  .range-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .text-input{
+    width: 2.4rem !important;
+    text-align: center;
+    border: none;
+    border-bottom: 3px solid #282c34;
+    background-color: transparent;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type=number] {
+      -moz-appearance: textfield;
+    }
+  }
+}
+
+.general-questions{
+  .questions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    span{
+      label{
+        display: inline;
+      }
+      select{
+        margin-left: 2rem;
+        margin-top: .5rem;
+      }
+    }
+  }
+  textarea{
+    width: 25rem;
+    height: 9rem;
+  }
 }
 
 .status-circle{
