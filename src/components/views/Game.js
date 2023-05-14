@@ -162,7 +162,9 @@ function Game({ opponent_name, type, setFinished }) {
                )}
             </div>
          </div>
-         {`round: ${set_history.current.length}\\${rounds}`}
+         <span className="round-num">
+            {`round: ${set_history.current.length}\\${rounds}`}
+         </span>
       </div>
    );
 }

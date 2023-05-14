@@ -2,7 +2,7 @@ import { bold_underlineText } from "../helpers/semantics";
 
 export const config = {
    GAME_CONFIG: {
-      opponent_name: "Amir Mizrahi",
+      opponent_name: "Dana Mizrahi",
       rounds: 5,
       round_timer: 3000,
       computer_delay: [500, 3000],

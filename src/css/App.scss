@@ -57,6 +57,10 @@ button {
       gap: 1rem;
       justify-content: center;
       margin-bottom: 20px;
+      button{
+        width: 20rem;
+        
+      }
     }
   }
 }
@@ -96,13 +100,15 @@ button {
 .game-view{
   display: flex;
   flex-direction: column;
+  position: relative;
   height: 100%;
   .players{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    padding: 1.65rem 0;
+    padding-top: 1.65rem ;
+    padding-bottom: .8rem;
     flex-grow: 1;
     overflow: hidden;
     
@@ -190,10 +196,11 @@ button {
   .buttons{
     display: flex;
     gap: 5px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     button{
       margin: 20px;
+      // width: 15rem;
     }
   }
 
@@ -214,7 +221,11 @@ button {
     }
   }
 
-  
+  .round-num{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+  }
   
 }
 

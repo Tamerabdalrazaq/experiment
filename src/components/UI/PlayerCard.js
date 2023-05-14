@@ -25,7 +25,6 @@ function PlayerCard({ name, ready, timerOn, wallet }) {
          </div>
          <div className={`wallet ${wallet > 999 ? "small" : ""}`}>
             <CountUp start={currentWallet.current} end={wallet} />
-            {}₪
          </div>
       </div>
    );
