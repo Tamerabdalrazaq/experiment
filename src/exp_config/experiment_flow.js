@@ -33,13 +33,13 @@ export const experiment_flow = [
       opponent_name={GAME_CONFIG.opponent_name}
       type={GAME_TYPES.learning}
    />,
-   <GameView
-      opponent_name={GAME_CONFIG.opponent_name}
-      type={GAME_TYPES.training}
-   />,
    <InstructionsView
       title={POST_LEARNING_INSTRUCTIONS.title}
       instructions={POST_LEARNING_INSTRUCTIONS.instructions}
+   />,
+   <GameView
+      opponent_name={GAME_CONFIG.opponent_name}
+      type={GAME_TYPES.training}
    />,
    <GameView
       opponent_name={GAME_CONFIG.opponent_name}
