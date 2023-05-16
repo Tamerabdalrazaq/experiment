@@ -12,6 +12,7 @@ export const config = {
       },
    },
    GAME_TYPES: {
+      learning: "LEARNING",
       training: "TRAINING",
       set_1: "SET_1",
       set_2: "SET_2",

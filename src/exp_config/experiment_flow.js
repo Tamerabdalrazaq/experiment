@@ -31,6 +31,10 @@ export const experiment_flow = [
    )),
    <GameView
       opponent_name={GAME_CONFIG.opponent_name}
+      type={GAME_TYPES.learning}
+   />,
+   <GameView
+      opponent_name={GAME_CONFIG.opponent_name}
       type={GAME_TYPES.training}
    />,
    <InstructionsView
