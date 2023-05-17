@@ -96,8 +96,13 @@ export const UI_DATA = {
          { label: "Please do not check this box", checked: false },
       ],
    },
+
+   FIRST_SET_FINISHED: {
+      title: "Set 1\\3 Completed!",
+      instructions: [],
+   },
    SECOND_ATTENTION: {
-      title: "Set 1\\2 Completed!",
+      title: "Set 2\\3 Completed!",
       instructions: [
          "You have completed the first set with Amir Mizrahi, in the next part you will continue playing another set of rounds with the same player.",
       ],
@@ -162,8 +167,8 @@ export const UI_DATA = {
       ],
    },
    POST_LEARNING_INSTRUCTIONS: {
-      title: "First set finished",
-      instructions: [<h2>Press next to procede</h2>],
+      title: "Let the game begin!",
+      instructions: [""],
    },
    DICTATOR_GAME_INSTRUCTIONS: {
       title: "Dictator Game",
