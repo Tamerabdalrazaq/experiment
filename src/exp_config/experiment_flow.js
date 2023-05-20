@@ -5,6 +5,8 @@ import { UI_DATA, config } from "./experiment_config";
 import DictatorGameView from "../components/views/DictatorGameView";
 import GeneralQuestionsView from "../components/views/GeneralQuestionsView";
 import DebriefView from "../components/views/DebriefView";
+import YourOpponentView from "../components/views/YourOpponentView";
+import ExposeOpponentView from "../components/views/ExposeOpponentView";
 
 const { GAME_CONFIG, GAME_TYPES } = config;
 const {
@@ -15,6 +17,7 @@ const {
    DICTATOR_GAME_INSTRUCTIONS,
    DEBRIEF,
    FIRST_SET_FINISHED,
+   OPPONENT_DESCRIPTION_INSTRUCTIONS,
 } = UI_DATA;
 
 export const experiment_flow = [
@@ -34,10 +37,7 @@ export const experiment_flow = [
       opponent_name={GAME_CONFIG.opponent_name}
       type={GAME_TYPES.learning}
    />,
-   <InstructionsView
-      title={POST_LEARNING_INSTRUCTIONS.title}
-      instructions={POST_LEARNING_INSTRUCTIONS.instructions}
-   />,
+   <YourOpponentView />,
    <GameView
       opponent_name={GAME_CONFIG.opponent_name}
       type={GAME_TYPES.training}
@@ -50,11 +50,7 @@ export const experiment_flow = [
       opponent_name={GAME_CONFIG.opponent_name}
       type={GAME_TYPES.set_1}
    />,
-   <AttentionCheck
-      title={SECOND_ATTENTION.title}
-      instructions={SECOND_ATTENTION.instructions}
-      attention_questions={SECOND_ATTENTION.attention_questions}
-   />,
+   <ExposeOpponentView />,
    <GameView
       opponent_name={GAME_CONFIG.opponent_name}
       type={GAME_TYPES.set_2}

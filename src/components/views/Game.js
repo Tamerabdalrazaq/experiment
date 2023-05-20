@@ -50,7 +50,7 @@ function Game({ opponent_name, type, setFinished }) {
       return () => {
          window.removeEventListener("keydown", handleKeyPress);
       };
-   }, [timerOn]);
+   }, [timerOn, tourOn]);
 
    useEffect(() => {
       if (set_history.current.length >= rounds) return setFinished(true);

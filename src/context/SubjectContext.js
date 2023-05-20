@@ -1,11 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { config } from "../exp_config/experiment_config";
 
 export const SubjectContext = React.createContext();
 
 const types = config.GAME_TYPES;
+const op_name = config.GAME_CONFIG.opponent_name;
+const { EARLY_IN, EARLY_OUT, LATE_IN, LATE_OUT } = config.subject_types;
 
 export function SubjectContextProvider({ children }) {
+   const subject_type = useRef();
    const learningSet = useRef([]);
    const trainingSet = useRef([]);
    const set_1 = useRef([]);
@@ -15,12 +18,36 @@ export function SubjectContextProvider({ children }) {
       subject: 0,
       computer: 0,
    });
+   const [nameExposed, setNameExposed] = useState(false);
    const dictator_input = useRef();
    const general_questions = useRef({});
+
+   useEffect(() => {
+      const rand = Math.random();
+      if (rand < 0.25) subject_type.current = EARLY_IN;
+      else if (rand < 0.5) subject_type.current = EARLY_OUT;
+      else if (rand < 0.75) subject_type.current = LATE_IN;
+      else if (rand <= 1) subject_type.current = LATE_OUT;
+      console.log(subject_type.current);
+   }, []);
 
    function resetWallet() {
       wallet.current = { subject: 0, computer: 0 };
    }
+
+   function getOpName() {
+      if (subject_type.current === EARLY_IN) return op_name.IN;
+      else if (subject_type.current === EARLY_OUT) return op_name.OUT;
+      else if (subject_type.current === LATE_IN)
+         return nameExposed ? op_name.IN : getFirstName(op_name.IN);
+      else if (subject_type.current === LATE_OUT)
+         return nameExposed ? op_name.OUT : getFirstName(op_name.OUT);
+   }
+
+   function getFirstName(name) {
+      return name.split(" ")[0];
+   }
+
    return (
       <SubjectContext.Provider
          value={{
@@ -33,6 +60,8 @@ export function SubjectContextProvider({ children }) {
             resetWallet,
             dictator_input,
             general_questions,
+            getOpName,
+            setNameExposed,
          }}
       >
          {children}

@@ -6,7 +6,7 @@ import { SubjectContext } from "../../context/SubjectContext";
 
 const { GAME_TYPES } = config;
 
-function GameView({ opponent_name, type }) {
+function GameView({ type }) {
    const learning = type === GAME_TYPES.learning;
    const subjectContext = useContext(SubjectContext);
    const [gameOn, setGameOn] = useState(learning);
@@ -29,7 +29,7 @@ function GameView({ opponent_name, type }) {
       <FinishedSet />
    ) : gameOn || learning ? (
       <Game
-         opponent_name={opponent_name}
+         opponent_name={subjectContext.getOpName()}
          type={type}
          setFinished={setFinished}
       />

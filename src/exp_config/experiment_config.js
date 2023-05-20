@@ -1,3 +1,4 @@
+import RewardsTable from "../components/UI/RewardsTable";
 import { bold_underlineText } from "../helpers/semantics";
 
 const GAME_TYPES = {
@@ -8,8 +9,14 @@ const GAME_TYPES = {
 };
 
 export const config = {
+   subject_types: {
+      EARLY_IN: "E_I",
+      EARLY_OUT: "E_O",
+      LATE_IN: "L_I",
+      LATE_OUT: "L_O",
+   },
    GAME_CONFIG: {
-      opponent_name: "Dana Mizrahi",
+      opponent_name: { OUT: "Dana Mizrahi", IN: "Dana Ahmadi" },
       rounds: {
          [GAME_TYPES.learning]: 3,
          [GAME_TYPES.training]: 3,
@@ -72,7 +79,7 @@ export const tutorial_steps = [
       content: "A gray animating circle means the player has not played yet.",
    },
    {
-      selector: ".floating-timer",
+      selector: ".game-view",
       content:
          "You will play 3 round so that you understand the flow of the game. Press X when ready!",
    },
@@ -80,7 +87,7 @@ export const tutorial_steps = [
 
 export const UI_DATA = {
    FIRST_ATTENTION: {
-      title: "First Attention Check",
+      title: "Welcome!",
       instructions: [
          "Before we begin the experiment, we need to make sure that please sit in an interruption-free environment, and also put your phone on silent. Thank you!",
       ],
@@ -120,49 +127,46 @@ export const UI_DATA = {
    },
    INSTRUCTIONS_ARRAY: [
       {
-         title: "Welcome!",
+         title: "What we will do",
          instructions: [
-            "In this study, you will play an interactive game that will test your strategic decision-making skills while playing with the computer. The game is played for an unknown number of rounds.",
+            "In this study, you will play an interactive game that will test your strategic decision-making skills while playing with the computer. This game will be played for several rounds.",
             "Your objective is to accumulate as many points as possible.",
-         ],
-      },
-
-      {
-         title: "Your Opponent",
-         instructions: [
-            "You will be playing with a computer-controlled fictional character named Amir Mizrahi, is 24, he’s a straight man with brown eyes, who is weighing roughly 76 kg. He has 2 siblings, one older and one younger. ",
          ],
       },
       {
          title: "Games Rules",
          instructions: [
             "Each turn you will need to choose between collaboration (press “D”) or not to collaborate (press “K”). Not collaborating would be called a “Solo”  move. Score would be assigned to you and Amir as a result of your choices based on the following rules:",
-            "Collaboration (both you and Amir choose this action): You and Amir earn 3 points.",
-            "Single Solo Move (one player chooses Collaborate, the other person chooses a solo move): Solo Move player earns 4 points, Collaborating player earns 0 points.",
-            "Mutual Solo Move: (both players choose not to collaborate): Both players earn 1 point.",
+            <RewardsTable />,
          ],
       },
-      {
-         title: "Order of the game",
-         instructions: [
-            "Before each round, decide whether to choose Collaborate or Solo Move. Keep in mind that Amir will also make a choice.",
-            "After you choose, you will see Amir’s choice, and you will receive award points according to the rules above.",
-            "The game will repeat for a predetermined amount of rounds. ",
-            "Your final score would consist of the final amount of points you have at the end of the game.",
-         ],
-      },
-      {
-         title: "Order of the game",
-         instructions: [
-            "We will first start with a training session to make you familiar with the game. Everything will be exactly the same as in the game including the behavior of Amir. Amir would not remember how you played and he would not take that into consideration in the next stages of the game. This stage is strictly to get you familiarized with the game and Amir.  ",
-            "A continue button will be displayed at the bottom of the page. ",
-         ],
-      },
+      // {
+      //    title: "Order of the game",
+      //    instructions: [
+      //       "Before each round, decide whether to choose Collaborate or Solo Move. Keep in mind that Amir will also make a choice.",
+      //       "After you choose, you will see Amir’s choice, and you will receive award points according to the rules above.",
+      //       "The game will repeat for a predetermined amount of rounds. ",
+      //       "Your final score would consist of the final amount of points you have at the end of the game.",
+      //    ],
+      // },
+      // {
+      //    title: "Order of the game",
+      //    instructions: [
+      //       "We will first start with a training session to make you familiar with the game. Everything will be exactly the same as in the game including the behavior of Amir. Amir would not remember how you played and he would not take that into consideration in the next stages of the game. This stage is strictly to get you familiarized with the game and Amir.  ",
+      //       "A continue button will be displayed at the bottom of the page. ",
+      //    ],
+      // },
    ],
+   OPPONENT_DESCRIPTION_INSTRUCTIONS: {
+      title: "Your Opponent",
+      instructions: [
+         "You will be playing with a computer-controlled fictional character named Amir Mizrahi, is 24, he’s a straight man with brown eyes, who is weighing roughly 76 kg. He has 2 siblings, one older and one younger. ",
+      ],
+   },
    POST_LEARNING_INSTRUCTIONS: {
       title: "Learning Phase Completed!",
       instructions: [
-         "Thank you for playing the first training set. The score previously would not count towards your final score.",
+         "Thank you for playing the first set. The score previously would not count towards your final score.",
          "You will now continue to play against the same player. From now on your behavior would count towards your final score",
       ],
    },

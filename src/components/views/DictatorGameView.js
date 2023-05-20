@@ -8,9 +8,26 @@ import Form from "react-bootstrap/Form";
 import InstructionsView from "./InstructionsView";
 import { config } from "../../exp_config/experiment_config";
 import { SubjectContext } from "../../context/SubjectContext";
+import { bold_underlineText } from "../../helpers/semantics";
 
-const DictatorGameView = forwardRef(({ title, instructions }, ref) => {
+const DictatorGameView = forwardRef(({}, ref) => {
    const subjectContext = useContext(SubjectContext);
+
+   const { title, instructions } = {
+      title: "Dictator Game",
+      instructions: [
+         <>
+            Before calculating the final score, You are given an{" "}
+            {bold_underlineText("extra 100")} points.
+         </>,
+         "You can choose if and how much to split it with Amir. ",
+         <>
+            Please choose how much to {bold_underlineText("give")}{" "}
+            {subjectContext.getOpName()}, the remainder would be added to your
+            final amount.
+         </>,
+      ],
+   };
    const [input, setInput] = useState(
       Math.floor(config.DICTATORS_GAME_MONEY / 2)
    );
@@ -33,7 +50,7 @@ const DictatorGameView = forwardRef(({ title, instructions }, ref) => {
          <InstructionsView title={title} instructions={instructions} />
          <div className="range-input">
             <Form.Label>
-               Give {config.GAME_CONFIG.opponent_name}{" "}
+               Give {subjectContext.getOpName()}{" "}
                <input
                   type="number"
                   min={0}
@@ -45,8 +62,7 @@ const DictatorGameView = forwardRef(({ title, instructions }, ref) => {
                   }
                   className="text-input"
                   value={input}
-               />{" "}
-               ₪
+               />
             </Form.Label>
             <Form.Range
                style={{ width: "50%" }}

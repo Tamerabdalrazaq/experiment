@@ -327,6 +327,17 @@ button {
   }
 }
 
+
+
+.rewards_table  {border-collapse:collapse;border-spacing:0;margin: auto;}
+.rewards_table td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.rewards_table th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.rewards_table .tg-8l6z{color:#00009b;font-weight:bold;text-align:left;vertical-align:top}
+.rewards_table .tg-0lax{text-align:left;vertical-align:top}
+.rewards_table .tg-lfzh{color:#036400;font-weight:bold;text-align:left;vertical-align:top}
+
 .mobile-warning{
   width: 100vw;
   height: 100vh;
