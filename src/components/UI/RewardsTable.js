@@ -3,10 +3,10 @@ import React from "react";
 function RewardsTable() {
    return (
       <>
-         <table class="rewards_table">
+         <table className="rewards_table">
             <thead>
                <tr>
-                  <th class="tg-0lax">
+                  <th className="tg-0lax">
                      <span style={{ fontWeight: "bold", color: "#036400" }}>
                         Player1
                      </span>
@@ -15,14 +15,14 @@ function RewardsTable() {
                         Player2
                      </span>
                   </th>
-                  <th class="tg-lfzh">Cooporate</th>
-                  <th class="tg-lfzh">Solo-Move</th>
+                  <th className="tg-lfzh">Cooporate</th>
+                  <th className="tg-lfzh">Solo-Move</th>
                </tr>
             </thead>
             <tbody>
                <tr>
-                  <td class="tg-8l6z">Cooporate</td>
-                  <td class="tg-0lax">
+                  <td className="tg-8l6z">Cooporate</td>
+                  <td className="tg-0lax">
                      <span style={{ fontWeight: "bold", color: "#036400" }}>
                         30pts
                      </span>{" "}
@@ -31,7 +31,7 @@ function RewardsTable() {
                         30pts
                      </span>
                   </td>
-                  <td class="tg-0lax">
+                  <td className="tg-0lax">
                      <span style={{ fontWeight: "bold", color: "#036400" }}>
                         40pts
                      </span>{" "}
@@ -42,8 +42,8 @@ function RewardsTable() {
                   </td>
                </tr>
                <tr>
-                  <td class="tg-8l6z">Solo-Move</td>
-                  <td class="tg-0lax">
+                  <td className="tg-8l6z">Solo-Move</td>
+                  <td className="tg-0lax">
                      <span style={{ fontWeight: "bold", color: "#036400" }}>
                         0pts
                      </span>{" "}
@@ -52,7 +52,7 @@ function RewardsTable() {
                         40pts
                      </span>
                   </td>
-                  <td class="tg-0lax">
+                  <td className="tg-0lax">
                      <span style={{ fontWeight: "bold", color: "#036400" }}>
                         10pts
                      </span>

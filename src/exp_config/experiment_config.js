@@ -106,7 +106,9 @@ export const UI_DATA = {
 
    FIRST_SET_FINISHED: {
       title: "Set 1\\3 Completed!",
-      instructions: [],
+      instructions: [
+         "You have completed the first round. Your final score will be calculated base on the next two rounds.",
+      ],
    },
    SECOND_ATTENTION: {
       title: "Set 2\\3 Completed!",

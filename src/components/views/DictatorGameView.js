@@ -21,11 +21,11 @@ const DictatorGameView = forwardRef(({}, ref) => {
             {bold_underlineText("extra 100")} points.
          </>,
          "You can choose if and how much to split it with Amir. ",
-         <>
+         <p>
             Please choose how much to {bold_underlineText("give")}{" "}
             {subjectContext.getOpName()}, the remainder would be added to your
             final amount.
-         </>,
+         </p>,
       ],
    };
    const [input, setInput] = useState(
@@ -50,7 +50,7 @@ const DictatorGameView = forwardRef(({}, ref) => {
          <InstructionsView title={title} instructions={instructions} />
          <div className="range-input">
             <Form.Label>
-               Give {subjectContext.getOpName()}{" "}
+               Give {bold_underlineText(subjectContext.getOpName())}{" "}
                <input
                   type="number"
                   min={0}

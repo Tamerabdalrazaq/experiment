@@ -33,28 +33,16 @@ export const experiment_flow = [
          key={i}
       />
    )),
-   <GameView
-      opponent_name={GAME_CONFIG.opponent_name}
-      type={GAME_TYPES.learning}
-   />,
+   <GameView opponent_name={"Opponent"} type={GAME_TYPES.learning} />,
    <YourOpponentView />,
-   <GameView
-      opponent_name={GAME_CONFIG.opponent_name}
-      type={GAME_TYPES.training}
-   />,
+   <GameView type={GAME_TYPES.training} />,
    <InstructionsView
       title={FIRST_SET_FINISHED.title}
       instructions={FIRST_SET_FINISHED.instructions}
    />,
-   <GameView
-      opponent_name={GAME_CONFIG.opponent_name}
-      type={GAME_TYPES.set_1}
-   />,
+   <GameView type={GAME_TYPES.set_1} />,
    <ExposeOpponentView />,
-   <GameView
-      opponent_name={GAME_CONFIG.opponent_name}
-      type={GAME_TYPES.set_2}
-   />,
+   <GameView type={GAME_TYPES.set_2} />,
    <DictatorGameView
       title={DICTATOR_GAME_INSTRUCTIONS.title}
       instructions={DICTATOR_GAME_INSTRUCTIONS.instructions}

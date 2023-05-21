@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { forwardRef, useContext, useEffect } from "react";
 import { SubjectContext } from "../../context/SubjectContext";
 import AttentionCheck from "./AttentionCheck";
+import { bold_underlineText } from "../../helpers/semantics";
 
-function ExposeOpponentView({ timing }) {
+const ExposeOpponentView = forwardRef(({ timing }, ref) => {
    const { getOpName, setNameExposed } = useContext(SubjectContext);
 
    useEffect(() => {
@@ -12,16 +13,22 @@ function ExposeOpponentView({ timing }) {
    const SECOND_ATTENTION = {
       title: "Set 2\\3 Completed!",
       instructions: [
-         `You have completed the first set with ${getOpName()}, in the next part you will continue playing another set of rounds with the same player.`,
+         <p>
+            You have completed the first set with{" "}
+            {bold_underlineText(getOpName())}, in the next part you will
+            continue playing another set of rounds with her.
+         </p>,
       ],
+      attention_title:
+         "Which of the following is a color? (Check all correct answers)",
       attention_questions: [
          {
-            label: "Are you in an interruption-free environment? ",
+            label: "Red",
             checked: true,
          },
-         { label: "Please do not check this box", checked: false },
+         { label: "Table Tennis", checked: false },
          {
-            label: "Is your phone on silent / off? (Please check this box if so) ",
+            label: "Brown",
             checked: true,
          },
       ],
@@ -29,11 +36,13 @@ function ExposeOpponentView({ timing }) {
 
    return (
       <AttentionCheck
+         ref={ref}
          title={SECOND_ATTENTION.title}
          instructions={SECOND_ATTENTION.instructions}
+         attention_title={SECOND_ATTENTION.attention_title}
          attention_questions={SECOND_ATTENTION.attention_questions}
       />
    );
-}
+});
 
 export default ExposeOpponentView;
