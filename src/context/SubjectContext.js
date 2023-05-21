@@ -21,6 +21,7 @@ export function SubjectContextProvider({ children }) {
    const [nameExposed, setNameExposed] = useState(false);
    const dictator_input = useRef();
    const general_questions = useRef({});
+   const [lang, setLang] = useState("EN");
 
    useEffect(() => {
       const rand = Math.random();
@@ -36,12 +37,14 @@ export function SubjectContextProvider({ children }) {
    }
 
    function getOpName() {
-      if (subject_type.current === EARLY_IN) return op_name.IN;
-      else if (subject_type.current === EARLY_OUT) return op_name.OUT;
+      if (subject_type.current === EARLY_IN) return op_name.IN[lang];
+      else if (subject_type.current === EARLY_OUT) return op_name.OUT[lang];
       else if (subject_type.current === LATE_IN)
-         return nameExposed ? op_name.IN : getFirstName(op_name.IN);
+         return nameExposed ? op_name.IN[lang] : getFirstName(op_name.IN[lang]);
       else if (subject_type.current === LATE_OUT)
-         return nameExposed ? op_name.OUT : getFirstName(op_name.OUT);
+         return nameExposed
+            ? op_name.OUT[lang]
+            : getFirstName(op_name.OUT[lang]);
    }
 
    function getFirstName(name) {
@@ -62,6 +65,8 @@ export function SubjectContextProvider({ children }) {
             general_questions,
             getOpName,
             setNameExposed,
+            lang,
+            setLang,
          }}
       >
          {children}

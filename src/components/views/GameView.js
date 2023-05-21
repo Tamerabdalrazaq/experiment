@@ -6,7 +6,7 @@ import { SubjectContext } from "../../context/SubjectContext";
 
 const { GAME_TYPES } = config;
 
-function GameView({ type, opponent_name }) {
+function GameView({ type, opponent_name, your_name }) {
    const learning = type === GAME_TYPES.learning;
    const subjectContext = useContext(SubjectContext);
    const [gameOn, setGameOn] = useState(learning);
@@ -33,6 +33,7 @@ function GameView({ type, opponent_name }) {
          opponent_name={opponent_name || subjectContext.getOpName()}
          type={type}
          setFinished={setFinished}
+         your_name={your_name}
       />
    ) : (
       <div className="pregame-count">

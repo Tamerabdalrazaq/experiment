@@ -20,7 +20,6 @@ const AttentionCheck = forwardRef(
    ) => {
       const [checkedNum, setCheckedNum] = useState(0);
       const subjectContext = useContext(SubjectContext);
-
       useImperativeHandle(ref, () => ({
          allow_next() {
             const allowed = checkedNum === attention_questions.length - 1;

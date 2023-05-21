@@ -1,23 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import "../css/App.scss";
-import { experiment_flow } from "../exp_config/experiment_flow";
+import useExperimentFlow from "../exp_config/useExperimentFlow";
+import { UI_DATA } from "../exp_config/experiment_config";
+import { SubjectContext } from "../context/SubjectContext";
 
 function Experiment() {
    const [progress, setProgress] = useState(0);
    const childRef = useRef(null);
+   const experimentFlow = useExperimentFlow();
+   const { lang } = useContext(SubjectContext);
 
-   const next_button = experiment_flow[progress].props.next_button;
-   const prev_button = experiment_flow[progress].props.prev_button;
-
-   const el = React.createElement(
-      experiment_flow[progress].type,
-      {
-         ...experiment_flow[progress].props,
-         ref: childRef,
-      },
-      experiment_flow[progress].children
-   );
+   const next_button = experimentFlow[progress].props.next_button;
+   const prev_button = experimentFlow[progress].props.prev_button;
 
    const button_click = (dir) => {
       if (
@@ -26,27 +21,39 @@ function Experiment() {
          childRef.current.allow_next()
       ) {
          setProgress((curr) => {
-            return Math.min(
-               Math.max(curr + dir, 0),
-               experiment_flow.length - 1
-            );
+            return Math.min(Math.max(curr + dir, 0), experimentFlow.length - 1);
          });
       }
    };
 
+   const el = React.createElement(
+      experimentFlow[progress].type,
+      {
+         ...experimentFlow[progress].props,
+         ref: childRef,
+         move: button_click,
+      },
+      experimentFlow[progress].children
+   );
+
    return (
-      <div className="exp_container">
+      <div
+         className="exp_container"
+         style={{ direction: lang === "AR" ? "rtl" : "ltr" }}
+      >
          <div className="top">{el}</div>
          <div className="bottom">
             <div className="buttons">
-               <button onClick={() => button_click(-1)}>previous</button>
+               <button onClick={() => button_click(-1)}>
+                  {UI_DATA.BUTTONS.PREV[lang]}
+               </button>
                <button onClick={() => button_click(1)}>
-                  {next_button || "next"}
+                  {next_button || UI_DATA.BUTTONS.NEXT[lang]}
                </button>
             </div>
             <ProgressBar
                animated
-               now={(progress / (experiment_flow.length - 1)) * 100}
+               now={(progress / (experimentFlow.length - 1)) * 100}
                label={""}
             />
          </div>

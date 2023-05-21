@@ -7,6 +7,7 @@ import { config, tutorial_steps } from "../../exp_config/experiment_config";
 import {
    getComputerDecision,
    getRewards,
+   getTutorialByLang,
    randRange,
 } from "../../helpers/helpers";
 import Tour from "reactour";
@@ -25,7 +26,8 @@ const {
    computer_delay: COMPUTER_DELAY,
 } = config.GAME_CONFIG;
 
-function Game({ opponent_name, type, setFinished }) {
+function Game({ opponent_name, type, setFinished, your_name }) {
+   console.log(opponent_name);
    const subjectContext = useContext(SubjectContext);
    const set_history = subjectContext[type];
    const [subjectChoise, setSubjectChoise] = useState(null);
@@ -35,6 +37,7 @@ function Game({ opponent_name, type, setFinished }) {
    const [subjectWallet, setSubjectWallet] = useState(0);
    const [computerWallet, setComputerWallet] = useState(0);
    const { closeTour, tourOn } = useTour(type);
+   const lang = subjectContext.lang || "EN";
 
    const rounds = _rounds[type];
 
@@ -130,7 +133,7 @@ function Game({ opponent_name, type, setFinished }) {
       <>
          {tourOn && (
             <Tour
-               steps={tutorial_steps}
+               steps={getTutorialByLang(lang)}
                isOpen={type === GAME_TYPES.learning}
                onRequestClose={closeTour}
             />
@@ -167,7 +170,7 @@ function Game({ opponent_name, type, setFinished }) {
                </div>
                <div className="player_row">
                   <PlayerCard
-                     name={"You"}
+                     name={your_name}
                      timerOn={timerOn}
                      ready={subjectChoise}
                      wallet={subjectWallet}

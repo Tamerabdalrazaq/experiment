@@ -8,6 +8,8 @@ import handleSubmit from "../../db/db_submit";
 const { training, set_1, set_2 } = config.GAME_TYPES;
 
 function DebriefView({ instructions, title }) {
+   console.log(title);
+   console.log(instructions);
    const subjectContext = useContext(SubjectContext);
    const [loading, setLoading] = useState(true);
 
