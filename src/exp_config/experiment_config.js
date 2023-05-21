@@ -138,7 +138,7 @@ export const UI_DATA = {
       {
          title: "Games Rules",
          instructions: [
-            "Each turn you will need to choose between collaboration (press “D”) or not to collaborate (press “K”). Not collaborating would be called a “Solo”  move. Score would be assigned to you and Amir as a result of your choices based on the following rules:",
+            "Each turn you will need to choose between collaboration (press “D”) or not to collaborate (press “K”). Not collaborating would be called a “Solo”  move. Score would be assigned to your opponent based on your choices, which is determined by these rules: ",
             <RewardsTable />,
          ],
       },
