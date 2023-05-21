@@ -15,7 +15,8 @@ function GameView({ type, opponent_name }) {
 
    useEffect(() => {
       setTimeout(() => setGameOn(true), 3000);
-      if (type === GAME_TYPES.set_1) subjectContext.resetWallet();
+      if (type === GAME_TYPES.set_1 || type === GAME_TYPES.training)
+         subjectContext.resetWallet();
    }, []);
 
    useEffect(() => {
