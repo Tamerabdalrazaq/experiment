@@ -29,7 +29,6 @@ export function SubjectContextProvider({ children }) {
       else if (rand < 0.5) subject_type.current = EARLY_OUT;
       else if (rand < 0.75) subject_type.current = LATE_IN;
       else if (rand <= 1) subject_type.current = LATE_OUT;
-      alert(`(Debugging) Subject Type:  ${subject_type.current}`);
    }, []);
 
    function resetWallet() {
@@ -67,6 +66,7 @@ export function SubjectContextProvider({ children }) {
             setNameExposed,
             lang,
             setLang,
+            subject_type,
          }}
       >
          {children}

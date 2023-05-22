@@ -6,7 +6,7 @@ function SelectLanguageView({ move }) {
 
    return (
       <div className="select-language">
-         <h2>Please select your preferred language</h2>
+         <h4>Please select your preferred language</h4>
          <div>
             <button
                onClick={() => {

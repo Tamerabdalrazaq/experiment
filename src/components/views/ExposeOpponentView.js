@@ -56,10 +56,6 @@ const ExposeOpponentView = forwardRef(({ timing }, ref) => {
       ],
    };
 
-   console.log(getValByLang(SECOND_ATTENTION.title, lang));
-   console.log(getArrByLang(SECOND_ATTENTION.instructions, lang));
-   console.log(getValByLang(SECOND_ATTENTION.attention_title, lang));
-   console.log(getArrByLang(SECOND_ATTENTION.attention_questions, lang));
    return (
       <AttentionCheck
          ref={ref}

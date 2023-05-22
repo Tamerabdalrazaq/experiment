@@ -1,21 +1,26 @@
 import { addDoc, collection } from "@firebase/firestore";
 import { firestore } from "../db/firebase";
 import { config } from "../exp_config/experiment_config";
+import { waitForPendingWrites } from "@firebase/firestore";
 
 const types = config.GAME_TYPES;
 const {
    GAME_CONFIG: { inputs },
 } = config;
 
-const handleSubmit = (data) => {
+const handleSubmit = async (data, accept, reject) => {
    const ref = collection(firestore, "test_data");
    const trimmed = prepare_data_shipping(data);
-   alert("(DEBUGGING) to see the data, press F12 -> console");
-   console.log(JSON.stringify(trimmed));
+   window.localStorage.setItem("subject_data", JSON.stringify(trimmed));
+   // console.log(JSON.stringify(trimmed));
    try {
-      // addDoc(ref, trimmed);
+      const res = await addDoc(ref, trimmed);
+      console.log(res);
+      accept();
    } catch (err) {
+      console.log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
       console.log(err);
+      reject(err);
    }
 };
 

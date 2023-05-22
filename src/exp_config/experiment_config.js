@@ -1,7 +1,7 @@
 import RewardsTable from "../components/UI/RewardsTable";
 import { bold_underlineText } from "../helpers/semantics";
 
-const GAME_TYPES = {
+export const GAME_TYPES = {
    learning: "LEARNING",
    training: "TRAINING",
    set_1: "SET_1",
@@ -121,11 +121,11 @@ export const UI_DATA = {
       },
    },
    FIRST_ATTENTION: {
-      title: { EN: "Welcome!", AR: "ترّاكُ أمكنة ذا لم أرضها" },
+      title: { EN: "Welcome!", AR: "..." },
       instructions: [
          {
             EN: "Before we begin the experiment, we need to make sure that please sit in an interruption-free environment, and also put your phone on silent. Thank you!",
-            AR: "ترّاكُ أمكنة ذا لم أرضها",
+            AR: "...",
          },
       ],
       attention_questions: [
@@ -136,7 +136,7 @@ export const UI_DATA = {
                checked: true,
             },
             AR: {
-               label: "ترّاكُ أمكنة ذا لم أرضها",
+               label: "...",
 
                checked: true,
             },
@@ -148,7 +148,7 @@ export const UI_DATA = {
                checked: true,
             },
             AR: {
-               label: "ترّاكُ أمكنة ذا لم أرضها",
+               label: "...",
 
                checked: true,
             },
@@ -160,7 +160,7 @@ export const UI_DATA = {
                checked: false,
             },
             AR: {
-               label: "ترّاكُ أمكنة ذا لم أرضها",
+               label: "...",
 
                checked: false,
             },
@@ -168,42 +168,50 @@ export const UI_DATA = {
       ],
    },
 
-   FIRST_SET_FINISHED: {
-      title: { EN: "Set 1\\3 Completed!", AR: "والدهر لا يبقى على حدثانه" },
+   PRE_TRAINING_INSTRUCTIONS: {
+      title: { EN: "What We Will DO", AR: "..." },
       instructions: [
          {
-            EN: "You have completed the first round. Your final score will be calculated base on the next two rounds.",
-            AR: "والدهر لا يبقى على حدثانه",
+            EN: "Now we will play a series of 3 rounds with a computer-controlled fictional charachter named Dana.",
+            AR: "...",
+         },
+         {
+            EN: "In the first round of the 3, you'll learn how Dana plays. Her behaviour is consistent througout the game.",
+            AR: "...",
+         },
+         {
+            EN: "Press Next to procede to the game.",
+            AR: "...",
          },
       ],
    },
    SECOND_ATTENTION: {
-      title: { EN: "Set 2\\3 Completed!", AR: "والدهر لا يبقى على حدثانه" },
+      title: { EN: "Set 2\\3 Completed!", AR: "..." },
       instructions: [
          {
             EN: "You have completed the first set with Amir Mizrahi, in the next part you will continue playing another set of rounds with the same player.",
-            AR: "والدهر لا يبقى على حدثانه",
+            AR: "...",
          },
       ],
       attention_questions: [
          {
             label: {
                EN: "Are you in an interruption-free environment? ",
-               AR: "والدهر لا يبقى على حدثانه",
+               AR: "...",
             },
             checked: true,
          },
          {
             label: {
                EN: "Please do not check this box",
-               AR: "والدهر لا يبقى على حدثانه",
+               AR: "...",
             },
             checked: false,
          },
          {
             label: {
                EN: "Is your phone on silent / off? (Please check this box if so) ",
-               AR: "والدهر لا يبقى على حدثانه",
+               AR: "...",
             },
             checked: true,
          },
@@ -211,72 +219,75 @@ export const UI_DATA = {
    },
    INSTRUCTIONS_ARRAY: [
       {
-         title: { EN: "What we will do", AR: "سفّود شربٍ نسوه عند مفتأد" },
+         title: { EN: "What we will do", AR: "..." },
          instructions: [
             {
                EN: "In this study, you will play an interactive game that will test your strategic decision-making skills while playing with the computer. This game will be played for several rounds.",
-               AR: "سفّود شربٍ نسوه عند مفتأد",
+               AR: "...",
             },
             {
                EN: "Your objective is to accumulate as many points as possible.",
-               AR: "سفّود شربٍ نسوه عند مفتأد",
+               AR: "...",
             },
          ],
       },
       {
-         title: { EN: "Games Rules", AR: "سفّود شربٍ نسوه عند مفتأد" },
+         title: { EN: "Games Rules", AR: "..." },
          instructions: [
             {
                EN: "Each turn you will need to choose between collaboration (press “D”) or not to collaborate (press “K”). Not collaborating would be called a “Solo”  move. Score would be assigned to your opponent based on your choices, which is determined by these rules: ",
-               AR: "سفّود شربٍ نسوه عند مفتأد",
+               AR: "...",
             },
-            <RewardsTable />,
+            {
+               EN: <RewardsTable />,
+               AR: <RewardsTable />,
+            },
          ],
       },
    ],
    OPPONENT_DESCRIPTION_INSTRUCTIONS: {
-      title: { EN: "Your Opponent", AR: "خليليّ ليلى أكبر الحاج والمنى" },
+      title: { EN: "Your Opponent", AR: "..." },
       instructions: [
          {
             EN: "You will be playing with a computer-controlled fictional character named Amir Mizrahi, is 24, he’s a straight man with brown eyes, who is weighing roughly 76 kg. He has 2 siblings, one older and one younger. ",
-            AR: "خليليّ ليلى أكبر الحاج والمنى",
+            AR: "...",
          },
       ],
    },
    POST_LEARNING_INSTRUCTIONS: {
       title: {
          EN: "Learning Phase Completed!",
-         AR: "خليليّ ليلى أكبر الحاج والمنى",
+         AR: "...",
       },
       instructions: [
          {
             EN: "Thank you for playing the first set. The score previously would not count towards your final score.",
-            AR: "خليليّ ليلى أكبر الحاج والمنى",
+            AR: "...",
          },
          {
             EN: "You will now continue to play against the same player. From now on your behavior would count towards your final score",
-            AR: "خليليّ ليلى أكبر الحاج والمنى",
+            AR: "...",
          },
       ],
    },
    POST_LEARNING_INSTRUCTIONS: {
-      title: { EN: "Let the game begin!", AR: "أراك عصيّ الدمع شيمتك الصبر" },
+      title: { EN: "Let the game begin!", AR: "..." },
       instructions: [],
    },
    GENERAL_QUESTIONS: {
-      title: { EN: "General Questions", AR: "لعينيك ما يلقى الفؤاد وما لقي" },
+      title: { EN: "General Questions", AR: "..." },
       instructions: [],
       q_1: {
          EN: "Do you think your behavior / Average contribution changed before and after the 20 second break?",
-         AR: "لعينيك ما يلقى الفؤاد وما لقي",
+         AR: "...",
       },
       q_2: {
          EN: "If your behavior changed, Why do you think it changed?",
-         AR: "لعينيك ما يلقى الفؤاد وما لقي",
+         AR: "...",
       },
       q_3: {
          EN: "What do you think was the purpose of this study? ",
-         AR: "لعينيك ما يلقى الفؤاد وما لقي",
+         AR: "...",
       },
    },
    DEBRIEF: {
@@ -284,7 +295,7 @@ export const UI_DATA = {
       instructions: [
          {
             EN: "Thanks for participating in our study. ",
-            AR: "لعينيك ما يلقى الفؤاد وما لقي",
+            AR: "...",
          },
          {
             EN: (
@@ -293,11 +304,17 @@ export const UI_DATA = {
                   {bold_underlineText("computer")}.
                </>
             ),
-            AR: "لعينيك ما يلقى الفؤاد وما لقي",
+            AR: (
+               <>
+                  {`We would like to remind you that you played against a{" "}
+                  ${bold_underlineText("computer")}`}
+                  .
+               </>
+            ),
          },
          {
             EN: "The study was conducted in order to test if and how people play cooperative games based on timing and types of information presented to them.",
-            AR: "لعينيك ما يلقى الفؤاد وما لقي",
+            AR: "...",
          },
       ],
    },

@@ -21,6 +21,7 @@ const {
    DICTATOR_GAME_INSTRUCTIONS,
    DEBRIEF,
    FIRST_SET_FINISHED,
+   PRE_TRAINING_INSTRUCTIONS,
    OPPONENT_DESCRIPTION_INSTRUCTIONS,
 } = UI_DATA;
 
@@ -53,20 +54,36 @@ export default function useExperimentFlow() {
             your_name={getName()}
             type={GAME_TYPES.learning}
          />,
-         <YourOpponentView />,
-         <GameView type={GAME_TYPES.training} your_name={getName()} />,
          <InstructionsView
-            title={getValByLang(FIRST_SET_FINISHED.title, lang)}
-            instructions={getArrByLang(FIRST_SET_FINISHED.instructions, lang)}
+            title={getValByLang(PRE_TRAINING_INSTRUCTIONS.title, lang)}
+            instructions={getArrByLang(
+               PRE_TRAINING_INSTRUCTIONS.instructions,
+               lang
+            )}
          />,
-         <GameView type={GAME_TYPES.set_1} your_name={getName()} />,
+         <GameView
+            type={GAME_TYPES.training}
+            your_name={getName()}
+            prev_button={"disabled"}
+         />,
+         <YourOpponentView />,
+         <GameView
+            type={GAME_TYPES.set_1}
+            your_name={getName()}
+            prev_button={"disabled"}
+         />,
          <ExposeOpponentView />,
-         <GameView type={GAME_TYPES.set_2} your_name={getName()} />,
-         <DictatorGameView next_button={"Finish"} prev_button={false} />,
-         <GeneralQuestionsView />,
+         <GameView
+            type={GAME_TYPES.set_2}
+            your_name={getName()}
+            prev_button={"disabled"}
+         />,
+         <DictatorGameView next_button={"Finish"} prev_button={"disabled"} />,
+         <GeneralQuestionsView prev_button={"disabled"} />,
          <DebriefView
             title={getValByLang(DEBRIEF.title, lang)}
             instructions={getArrByLang(DEBRIEF.instructions, lang)}
+            prev_button={"disabled"}
          />,
       ],
       [lang]

@@ -12,18 +12,18 @@ function YourOpponentView() {
       instructions: [
          {
             EN: (
-               <>
-                  You will be playing with a computer-controlled fictional
-                  character named {bold_underlineText(getOpName())}. She is 24,
-                  a straight woman with brown eyes, who is weighing roughly 64
-                  kg. She has 2 siblings, one older and one younger.
-               </>
+               <p>
+                  You've completed the first round with{" "}
+                  {bold_underlineText(getOpName())}. {getOpName()} is 24, a
+                  straight woman with brown eyes, who is weighing roughly 64 kg.
+                  She has 2 siblings, one older and one younger.
+               </p>
             ),
             AR: (
-               <>
+               <p>
                   أقوت وطال عليها سالف الأبد
                   {bold_underlineText(getOpName())}
-               </>
+               </p>
             ),
          },
       ],

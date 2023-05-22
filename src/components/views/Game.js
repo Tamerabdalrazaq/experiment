@@ -27,7 +27,6 @@ const {
 } = config.GAME_CONFIG;
 
 function Game({ opponent_name, type, setFinished, your_name }) {
-   console.log(opponent_name);
    const subjectContext = useContext(SubjectContext);
    const set_history = subjectContext[type];
    const [subjectChoise, setSubjectChoise] = useState(null);
