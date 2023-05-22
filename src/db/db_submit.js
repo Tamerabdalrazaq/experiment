@@ -12,7 +12,7 @@ const handleSubmit = async (data, accept, reject) => {
    const ref = collection(firestore, "test_data");
    const trimmed = prepare_data_shipping(data);
    window.localStorage.setItem("subject_data", JSON.stringify(trimmed));
-   // console.log(JSON.stringify(trimmed));
+   console.log(JSON.stringify(trimmed));
    try {
       const res = await addDoc(ref, trimmed);
       console.log(res);
@@ -39,6 +39,8 @@ function prepare_data_shipping(context_data) {
       wallet: context_data.wallet.current,
       dictator_input: context_data.dictator_input.current,
       general_questions: context_data.general_questions.current,
+      subject_id: context_data.subject_id.current,
+      started_at: context_data.curr_date.current,
    };
    return prepared;
 }

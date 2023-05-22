@@ -42,6 +42,8 @@ function Experiment() {
       current_view.children
    );
 
+   const showButtons = () => progress < experimentFlow.length - 1;
+
    return (
       <div
          className="exp_container"
@@ -51,19 +53,21 @@ function Experiment() {
 
          <div className="top">{el}</div>
          <div className="bottom">
-            <div className="buttons">
-               <button
-                  disabled={prev_button === "disabled"}
-                  onClick={() => button_click(-1)}
-               >
-                  {UI_DATA.BUTTONS.PREV[lang]}
-               </button>
-               <button onClick={() => button_click(1)}>
-                  {next_button || UI_DATA.BUTTONS.NEXT[lang]}
-               </button>
-            </div>
+            {showButtons() && (
+               <div className="buttons">
+                  <button
+                     disabled={prev_button === "disabled"}
+                     onClick={() => button_click(-1)}
+                  >
+                     {UI_DATA.BUTTONS.PREV[lang]}
+                  </button>
+                  <button onClick={() => button_click(1)}>
+                     {next_button || UI_DATA.BUTTONS.NEXT[lang]}
+                  </button>
+               </div>
+            )}
             <ProgressBar
-               animated
+               animated={showButtons()}
                now={(progress / (experimentFlow.length - 1)) * 100}
                label={""}
             />

@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import uniqid from "uniqid";
 import { config } from "../exp_config/experiment_config";
+import { getDate } from "../helpers/helpers";
 
 export const SubjectContext = React.createContext();
 
@@ -18,6 +20,8 @@ export function SubjectContextProvider({ children }) {
       subject: 0,
       computer: 0,
    });
+   const subject_id = useRef(uniqid());
+   const curr_date = useRef(getDate());
    const [nameExposed, setNameExposed] = useState(false);
    const dictator_input = useRef();
    const general_questions = useRef({});
@@ -67,6 +71,8 @@ export function SubjectContextProvider({ children }) {
             lang,
             setLang,
             subject_type,
+            curr_date,
+            subject_id,
          }}
       >
          {children}

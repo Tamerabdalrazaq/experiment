@@ -66,7 +66,7 @@ export default function useExperimentFlow() {
             your_name={getName()}
             prev_button={"disabled"}
          />,
-         <YourOpponentView />,
+         <YourOpponentView prev_button={"disabled"} />,
          <GameView
             type={GAME_TYPES.set_1}
             your_name={getName()}

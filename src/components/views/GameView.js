@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+   forwardRef,
+   useContext,
+   useEffect,
+   useImperativeHandle,
+   useState,
+} from "react";
 import Game from "./Game";
 import FinishedSet from "../UI/FinishedSet";
 import { config } from "../../exp_config/experiment_config";
@@ -6,12 +12,25 @@ import { SubjectContext } from "../../context/SubjectContext";
 
 const { GAME_TYPES } = config;
 
-function GameView({ type, opponent_name, your_name }) {
+const GameView = forwardRef(({ type, opponent_name, your_name }, ref) => {
    const learning = type === GAME_TYPES.learning;
    const subjectContext = useContext(SubjectContext);
    const [gameOn, setGameOn] = useState(learning);
    const [countdown, setCountdown] = useState(3);
    const [finished, setFinished] = useState(false);
+
+   const set_history = subjectContext[type];
+   const rounds = config.GAME_CONFIG.rounds[type];
+
+   useImperativeHandle(ref, () => ({
+      allow_next() {
+         return subjectFinishedSet();
+      },
+   }));
+
+   function subjectFinishedSet() {
+      return set_history.current.length >= rounds || finished;
+   }
 
    useEffect(() => {
       setTimeout(() => setGameOn(true), 3000);
@@ -26,7 +45,7 @@ function GameView({ type, opponent_name, your_name }) {
       }
    }, [countdown]);
 
-   return finished ? (
+   return subjectFinishedSet() ? (
       <FinishedSet />
    ) : gameOn || learning ? (
       <Game
@@ -34,6 +53,7 @@ function GameView({ type, opponent_name, your_name }) {
          type={type}
          setFinished={setFinished}
          your_name={your_name}
+         rounds={rounds}
       />
    ) : (
       <div className="pregame-count">
@@ -42,6 +62,6 @@ function GameView({ type, opponent_name, your_name }) {
          </div>
       </div>
    );
-}
+});
 
 export default GameView;

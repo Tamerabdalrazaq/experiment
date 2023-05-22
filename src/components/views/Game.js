@@ -21,12 +21,11 @@ const initialInputs = {
 const { GAME_TYPES } = config;
 
 const {
-   rounds: _rounds,
    inputs: { COOPORATE_KEY, SOLO_KEY },
    computer_delay: COMPUTER_DELAY,
 } = config.GAME_CONFIG;
 
-function Game({ opponent_name, type, setFinished, your_name }) {
+function Game({ opponent_name, type, setFinished, your_name, rounds }) {
    const subjectContext = useContext(SubjectContext);
    const set_history = subjectContext[type];
    const [subjectChoise, setSubjectChoise] = useState(null);
@@ -37,8 +36,6 @@ function Game({ opponent_name, type, setFinished, your_name }) {
    const [computerWallet, setComputerWallet] = useState(0);
    const { closeTour, tourOn } = useTour(type);
    const lang = subjectContext.lang || "EN";
-
-   const rounds = _rounds[type];
 
    const currentInputs = useRef({ ...initialInputs });
 
