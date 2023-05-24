@@ -178,9 +178,9 @@ function Game({ opponent_name, type, setFinished, your_name, rounds }) {
                   )}
                </div>
             </div>
-            <span className="round-num">
+            {/* <span className="round-num">
                {`round: ${set_history.current.length}\\${rounds}`}
-            </span>
+            </span> */}
          </div>
       </>
    );
