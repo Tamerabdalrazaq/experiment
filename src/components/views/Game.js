@@ -139,6 +139,7 @@ function Game({ opponent_name, type, setFinished, your_name, rounds }) {
                <div className="player_row">
                   <PlayerCard
                      name={opponent_name}
+                     type={"OPPONENT"}
                      timerOn={timerOn}
                      ready={computertChoise}
                      wallet={computerWallet}
@@ -167,6 +168,7 @@ function Game({ opponent_name, type, setFinished, your_name, rounds }) {
                <div className="player_row">
                   <PlayerCard
                      name={your_name}
+                     type={"YOU"}
                      timerOn={timerOn}
                      ready={subjectChoise}
                      wallet={subjectWallet}
