@@ -303,6 +303,24 @@ export const UI_DATA = {
             EN: "Press Next to procede to the game.",
             AR: 'اضغطي على "التالي" للاستمرار.',
          },
+         {
+            EN: "Press Next to procede to the game.",
+            AR: 'اضغطي على "التالي" للاستمرار.',
+         },
+         {
+            EN: (
+               <h6>
+                  *Please note - from the next page and on, you would not be
+                  able to move backward.
+               </h6>
+            ),
+            AR: (
+               <h6>
+                  *يرجى الإنتباه - ابتداءً من المرحلة التالية، لن تتمكّن من
+                  العودة الى الوراء
+               </h6>
+            ),
+         },
       ],
    },
 
