@@ -28,12 +28,11 @@ export function SubjectContextProvider({ children }) {
    const [lang, setLang] = useState("AR");
 
    useEffect(() => {
-      // const rand = Math.random();
-      // if (rand < 0.25) subject_type.current = EARLY_IN;
-      // else if (rand < 0.5) subject_type.current = EARLY_OUT;
-      // else if (rand < 0.75) subject_type.current = LATE_IN;
-      // else if (rand <= 1) subject_type.current = LATE_OUT;
-      subject_type.current = EARLY_OUT;
+      const rand = Math.random();
+      if (rand < 0.25) subject_type.current = EARLY_IN;
+      else if (rand < 0.5) subject_type.current = EARLY_OUT;
+      else if (rand < 0.75) subject_type.current = LATE_IN;
+      else if (rand <= 1) subject_type.current = LATE_OUT;
       console.log("[DEV - V3.1] Subject Type: " + subject_type.current);
    }, []);
 
