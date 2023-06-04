@@ -15,11 +15,12 @@ function App() {
       if (window.innerWidth <= 800) setShowMobileWarning(true);
    }, []);
 
-   return (
-      <MobileWarning
-         title={"Participating in the study is currently not allowed."}
-      />
-   );
+   if (!subject_admin)
+      return (
+         <MobileWarning
+            title={"Participating in the study is currently not allowed."}
+         />
+      );
 
    if (showMobileWarning)
       return (
