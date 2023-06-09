@@ -15,12 +15,12 @@ function App() {
       if (window.innerWidth <= 800) setShowMobileWarning(true);
    }, []);
 
-   if (!subject_admin)
-      return (
-         <MobileWarning
-            title={"Participating in the study is currently not allowed."}
-         />
-      );
+   // if (!subject_admin)
+   //    return (
+   //       <MobileWarning
+   //          title={"Participating in the study is currently not allowed."}
+   //       />
+   //    );
 
    if (showMobileWarning)
       return (
@@ -32,14 +32,14 @@ function App() {
             refresh the page`}
          />
       );
-   if (subject_exposed_to_training && !subject_admin)
-      return (
-         <MobileWarning
-            title={"Unfortunately, you can't take this experiment twice."}
-            message={`If you think this is a mistake, please contact the reseracher
-            in charge - Ayan Oudetallah.`}
-         />
-      );
+   // if (subject_exposed_to_training && !subject_admin)
+   //    return (
+   //       <MobileWarning
+   //          title={"Unfortunately, you can't take this experiment twice."}
+   //          message={`If you think this is a mistake, please contact the reseracher
+   //          in charge - Ayan Oudetallah.`}
+   //       />
+   //    );
    return (
       <SubjectContextProvider>
          <div className="App">
