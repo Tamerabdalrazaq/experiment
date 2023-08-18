@@ -26,8 +26,6 @@ function Experiment() {
       !childRef.current.allow_next ||
       childRef.current.allow_next();
 
-   console.log(allow_next());
-
    const button_click = (dir) => {
       if (allow_next()) {
          setProgress((curr) => {
